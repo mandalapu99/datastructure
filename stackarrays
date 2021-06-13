@@ -1,0 +1,63 @@
+package datastructures;
+
+public class Stack {
+	    int size = 1000;
+	    int top=0;
+	    int a[] = new int[size]; 
+	    void push(int x)
+	    {
+	        if (top >= (size - 1)) {
+	            System.out.println("Stack Overflow");
+	        }
+	        else {
+	            a[top] = x;
+	            top++;
+	        }
+	    }
+	 
+	    int pop()
+	    {
+	        if (top < 0) {
+	            System.out.println("Stack Underflow");
+	            return 0;
+	        }
+	        else {
+	        	top--;
+	            int x = a[top];
+	            return x;
+	        }
+	    }
+	 
+	    int peek()
+	    {
+	        if (top < 0) {
+	            System.out.println("Stack Underflow");
+	            return 0;
+	        }
+	        else {
+	            int x = a[top-1];
+	            return x;
+	        }
+	    }
+	    void show(){
+	    	for(int i=0;i<top;i++) {
+	    		System.out.print(a[i] + " ");
+	    	
+	    }
+	}
+}
+	class Test1 {
+	    public static void main(String args[])
+	    {
+	        Stack sarr = new Stack();
+	        sarr.push(10);
+	        sarr.push(20);
+	        sarr.push(30);
+	        sarr.push(40);
+	        sarr.push(50);
+	        System.out.println(sarr.pop() + " Popped from stack");
+	        //sarr.push(60);
+	        //System.out.println(sarr.peek() + "peek value");
+	        sarr.show();
+	    }
+	}
