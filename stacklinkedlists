@@ -1,0 +1,77 @@
+package datastructures;
+
+public class Stacklink {	 
+
+	     class Node {
+	        int data;
+	        Node next;
+
+	     }
+	     Node head;
+	    public void push(int data)
+	    {
+	        Node newNode = new Node();
+	        newNode.data=data;
+	        if (head == null) {
+	            head = newNode;
+	        }
+	        else {
+	            Node temp = head;
+	            head = newNode;
+	            newNode.next = temp;
+	        }
+	    }
+	 
+	    public int pop()
+	    {
+	        int x=0;
+	        if (head == null) {
+	            System.out.println("Stack is Empty");
+	        }
+	        else {
+	            x=head.data;
+	            head = head.next;
+	        }
+	        return x;
+	    }
+	 
+	    public int peek()
+	    {
+	        if (head == null) {
+	            System.out.println("Stack is empty");
+	            return 0;
+	        }
+	        else {
+	            return head.data;
+	        }
+	    }
+	    void show() {
+	    	Node t=head;
+	    	while(t.next!=null) {
+	    		System.out.print(t.data + " ");
+	    		t=t.next;
+	    	}
+	    	System.out.print(t.data);
+	    	
+	    }
+}
+
+class Test2{	 
+	    public static void main(String[] args)
+	    {
+	 
+	        Stacklink sl = new Stacklink();
+	 
+	        sl.push(10);
+	        sl.push(20);
+	        sl.push(30);
+	        sl.push(40);
+	 
+	        System.out.println(sl.pop() + " popped from stack");
+	 
+	        System.out.println("Top element is " + sl.peek());
+	        sl.show();
+	    }
+}
+
+
