@@ -1,0 +1,91 @@
+package datastructures;
+public class Linkedlist {
+	class Node{
+	   
+	        int data;
+	        Node next;
+	    }
+	Node head;
+    public void  insert(int data)
+	     {
+	        //Node head;
+	        Node node = new Node();
+	        node.data=data;
+	        node.next = null;
+	           if (head == null) {
+	              head = node;
+	             }
+	           else {
+	               Node n = head;
+	               while (n.next != null) {
+	                    n = n.next;
+	                }
+	               n.next = node;
+	        }
+	    }
+    public void insertatbegin(int data) {
+    	Node node=new Node();
+    	node.data=data;
+    	node.next=null;
+    	node.next=head;
+    	head=node;
+    }
+    public void insertat(int data,int pos){
+    	Node node = new Node();
+        node.data=data;
+        node.next = null;
+        if(pos==0) {
+        	insertatbegin(data);
+        }
+        else {
+    	Node n=head;
+    	for(int i=0;i<pos-1;i++) {
+    		n=n.next;
+    	}
+    	node.next=n.next;
+    	n.next=node;
+    }
+    }
+    public void deleteat(int pos) {
+    	if(pos==0) {
+    		head=head.next;
+    	}
+    	else {
+    		Node n=head;
+    		Node n1=null;
+    		for(int i=0;i<pos-1;i++) {
+    			n=n.next;
+    		}
+    		n1=n.next;
+    		n.next=n1.next;
+    		n1=null;   
+    		}
+    }
+	public  void printList()
+	    {
+	        Node currNode = head;
+	    
+	        System.out.print("LinkedList: ");
+	        while (currNode != null) {
+	            System.out.print(currNode.data + " ");
+	            currNode = currNode.next;
+	        }
+	    }
+}
+class test{
+    public static void main(String[] args)
+	    {
+	        /* Start with the empty list. */
+	        Linkedlist list = new Linkedlist();
+	        list.insert(5);
+	        list.insert(10);
+	        list.insert(15);
+	        list.insert(20);
+	        list.insertatbegin(3);
+	        list.insertat(20,3);
+	        list.deleteat(2);
+	        list.deleteat(4);
+	        // Print the LinkedList
+	        list.printList();
+	}
+}
